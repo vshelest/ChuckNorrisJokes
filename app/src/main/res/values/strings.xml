@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ChuckNorrisJokesSearch</string>
+    <string name="hint_filter_string">Enter joke text</string>
+</resources>
