@@ -30,10 +30,10 @@ class JokesViewModelImpl : JokesViewModel() {
             useCase.getJokes(it)
         }.catch {
             Log.d("SearchString", "Error: $this")
-        }.launchIn(CoroutineScope(Dispatchers.Default))
+        }.launchIn(CoroutineScope(Dispatchers.IO))
 
         useCase.jokesFlow.onEach {
             _jokesFlow.value = it
-        }
+        }.launchIn(CoroutineScope(Dispatchers.IO))
     }
 }

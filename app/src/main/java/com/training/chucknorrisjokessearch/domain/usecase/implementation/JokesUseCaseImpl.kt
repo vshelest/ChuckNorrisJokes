@@ -19,8 +19,10 @@ class JokesUseCaseImpl : JokesUseCase {
     override fun getJokes(searchString: String) {
         if (searchString.length > 2) {
             CoroutineScope(IO).launch {
-                _jokesFlow.value = convertJokes(api.jokesSearch(query = searchString).result)
+                _jokesFlow.emit(convertJokes(api.jokesSearch(query = searchString).result))
             }
+        } else {
+            _jokesFlow.value = emptyList()
         }
     }
 
