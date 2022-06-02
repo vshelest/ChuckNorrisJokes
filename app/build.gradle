@@ -7,6 +7,10 @@ plugins {
 android {
     compileSdk 32
 
+    kotlinOptions {
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
+    }
+
     defaultConfig {
         applicationId "com.training.searchtextentryfield"
         minSdk 21

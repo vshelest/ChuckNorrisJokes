@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.training.chucknorrisjokessearch.databinding.ActivityMainBinding
 import com.training.chucknorrisjokessearch.presentation.adapter.JokesAdapter
 import com.training.chucknorrisjokessearch.presentation.viewmodel.implementation.JokesViewModelImpl
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,18 +27,11 @@ class MainActivity : AppCompatActivity() {
         val adapter = JokesAdapter(viewModel.jokesFlow)
         val layoutManager = LinearLayoutManager(this)
         binding.tilSearchString.editText?.doOnTextChanged { text, start, before, count ->
-            updateSearchStringDelayed()
-        }
-        binding.rvJokes.adapter = adapter
-        binding.rvJokes.layoutManager = layoutManager
-    }
-
-    private fun updateSearchStringDelayed() {
-        CoroutineScope(IO).launch {
-            delay(500)
             viewModel.setNewSearchString(
                 binding.tilSearchString.editText?.text.toString()
             )
         }
+        binding.rvJokes.adapter = adapter
+        binding.rvJokes.layoutManager = layoutManager
     }
 }
