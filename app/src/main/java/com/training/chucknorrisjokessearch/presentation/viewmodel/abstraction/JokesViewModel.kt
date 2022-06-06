@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 abstract class JokesViewModel : ViewModel() {
     abstract val jokesFlow: StateFlow<List<Joke>>
     abstract val searchStringFlow: StateFlow<String>
+    abstract val errorFlow: StateFlow<String>
 
     abstract fun setNewSearchString(string: String)
 }
