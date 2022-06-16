@@ -1,13 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
+    id 'com.android.application' version '7.2.1' apply false
+    id 'com.android.library' version '7.2.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.6.21' apply false
 }
 
 allprojects {
     project.ext {
         apiKey = "\"14733a6b76mshb95743cb7d24429p100fe6jsnf9a3e6698ed2\""
+        databaseName = "\"jokesDB\""
         baseUrl = "\"https://api.chucknorris.io/\""
     }
 }
